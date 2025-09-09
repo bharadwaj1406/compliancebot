@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 0.625rem;
+  
+  /* Custom color theme with OKLCH format for better color management */
+  --background: #ffffff;
+  --foreground: #212D98;
+  --card: #ffffff;
+  --card-foreground: #212D98;
+  --popover: #ffffff;
+  --popover-foreground: #212D98;
+  --primary: #212D98;
+  --primary-foreground: #ffffff;
+  --secondary: #6C757D;
+  --secondary-foreground: #ffffff;
+  --muted: #f8f8f9;
+  --muted-foreground: #6C757D;
+  --accent: #6169B6;
+  --accent-foreground: #ffffff;
+  --destructive: #B21200;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #ffffff;
+  --ring: #212D98;
+  
+  /* Chart colors */
+  --chart-1: #212D98;
+  --chart-2: #6C757D;
+  --chart-3: #6169B6;
+  --chart-4: #12753A;
+  --chart-5: #AB6402;
+  
+  /* Sidebar colors */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #212D98;
+  --sidebar-primary: #212D98;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f8f8f9;
+  --sidebar-accent-foreground: #212D98;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #212D98;
+  
+  /* Custom theme colors */
+  --btn-disabled: #BCC0C7;
+  --success: #12753A;
+  --warning: #AB6402;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --card: #2a2a2a;
+  --card-foreground: #ffffff;
+  --popover: #2a2a2a;
+  --popover-foreground: #ffffff;
+  --primary: #6169B6;
+  --primary-foreground: #ffffff;
+  --secondary: #6C757D;
+  --secondary-foreground: #ffffff;
+  --muted: #2a2a2a;
+  --muted-foreground: #a1a1aa;
+  --accent: #6169B6;
+  --accent-foreground: #ffffff;
+  --destructive: #B21200;
+  --destructive-foreground: #ffffff;
+  --border: #404040;
+  --input: #2a2a2a;
+  --ring: #6169B6;
+  --chart-1: #6169B6;
+  --chart-2: #6C757D;
+  --chart-3: #212D98;
+  --chart-4: #12753A;
+  --chart-5: #AB6402;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #6169B6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404040;
+  --sidebar-ring: #6169B6;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--foreground);
+  }
+}
+
+/* Ensure proper styling for components */
+.bg-background { background-color: var(--background) !important; }
+.bg-card { background-color: var(--card) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.bg-accent { background-color: var(--accent) !important; }
+.bg-muted { background-color: var(--muted) !important; }
+.bg-sidebar { background-color: var(--sidebar) !important; }
+.bg-sidebar-accent { background-color: var(--sidebar-accent) !important; }
+
+.text-foreground { color: var(--foreground) !important; }
+.text-primary { color: var(--primary) !important; }
+.text-primary-foreground { color: var(--primary-foreground) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.text-muted-foreground { color: var(--muted-foreground) !important; }
+.text-sidebar-foreground { color: var(--sidebar-foreground) !important; }
+.text-sidebar-primary { color: var(--sidebar-primary) !important; }
+.text-sidebar-accent-foreground { color: var(--sidebar-accent-foreground) !important; }
+.text-card-foreground { color: var(--card-foreground) !important; }
+.text-accent { color: var(--accent) !important; }
+
+.border-border { border-color: var(--border) !important; }
+.border-sidebar-border { border-color: var(--sidebar-border) !important; }
+.border-primary { border-color: var(--primary) !important; }
+
+.hover\:bg-accent:hover { background-color: var(--accent) !important; }
+.hover\:bg-sidebar-accent\/50:hover { background-color: rgba(from var(--sidebar-accent) r g b / 0.5) !important; }
+
+/* Additional utility classes for better theming */
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Add subtle background pattern for better visual appeal on white */
+body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(33, 45, 152, 0.02) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* Ensure proper focus states */
+.focus-visible\:ring-2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+/* Animation classes for smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
