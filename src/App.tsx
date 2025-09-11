@@ -1,15 +1,45 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { AltiusChat } from './Chat'
+import { Home } from './components/Home'
+import { CountrySelection } from './components/CountrySelection'
+
+type ViewType = 'home' | 'country-selection' | 'chat';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentView, setCurrentView] = useState<ViewType>('home')
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null)
+
+  const handleGetStarted = () => {
+    setCurrentView('country-selection')
+  }
+
+  const handleSelectCountry = (country: string) => {
+    setSelectedCountry(country)
+    setCurrentView('chat')
+  }
+
+  const handleBackToHome = () => {
+    setCurrentView('home')
+    setSelectedCountry(null)
+  }
 
   return (
     <>
-      <AltiusChat />
+      {currentView === 'home' && (
+        <Home onGetStarted={handleGetStarted} />
+      )}
+      
+      {currentView === 'country-selection' && (
+        <CountrySelection onSelectCountry={handleSelectCountry} />
+      )}
+      
+      {currentView === 'chat' && (
+        <AltiusChat 
+          onBackToHome={handleBackToHome}
+          selectedCountry={selectedCountry}
+        />
+      )}
     </>
   )
 }

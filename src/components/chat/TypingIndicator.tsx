@@ -16,7 +16,7 @@ export const TypingIndicator: React.FC<TypingIndicatorProps> = ({ isVisible }) =
     >
       <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary flex-shrink-0 p-2">
         <img 
-          src="/logo.svg" 
+          src="/logo.png" 
           alt="Altius AI" 
           className="w-full h-full object-contain opacity-60"
           style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(96%) saturate(3071%) hue-rotate(229deg) brightness(93%) contrast(99%)' }}

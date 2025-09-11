@@ -29,7 +29,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message, index, onCopy
         {!message.isUser && (
           <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white flex-shrink-0 p-2">
             <img 
-              src="/logo.svg" 
+              src="/logo.png" 
               alt="Altius AI" 
               className="w-full h-full object-contain filter brightness-0 invert"
             />

@@ -27,7 +27,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({ sidebarOpen, setSidebarO
         <div className="flex items-center gap-3">
           <div className="h-8 flex items-center justify-center">
             <img 
-              src="/logo.svg" 
+              src="/logo.png" 
               alt="Altius Logo" 
               className="h-8 w-auto object-contain"
             />

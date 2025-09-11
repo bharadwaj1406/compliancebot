@@ -20,7 +20,12 @@ interface Chat {
   isActive?: boolean
 }
 
-export function AltiusChat() {
+interface AltiusChatProps {
+  onBackToHome?: () => void;
+  selectedCountry?: string | null;
+}
+
+export function AltiusChat({  }: AltiusChatProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
